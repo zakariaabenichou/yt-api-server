@@ -3,6 +3,7 @@ const cors = require('cors');
 const ytdlp = require('yt-dlp-exec');
 const ffmpegPath = require('ffmpeg-static');
 const path = require('path');
+const fs = require('fs');
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -10,12 +11,21 @@ const PORT = process.env.PORT || 5001;
 // Path to cookies.txt (must be in your repo, included in deploy)
 const COOKIES_PATH = path.join(__dirname, 'cookies.txt');
 
+// Check if cookies.txt exists
+if (!fs.existsSync(COOKIES_PATH)) {
+    console.error("❌ cookies.txt not found at", COOKIES_PATH);
+} else {
+    console.log("✅ cookies.txt found at", COOKIES_PATH);
+}
+
 app.use(cors());
 app.use(express.json());
 
 app.post('/api/convert', async (req, res) => {
     const { url, format } = req.body;
+
     if (!url || !format) {
+        console.warn("⚠️ Missing url or format in request body:", req.body);
         return res.status(400).json({ error: 'Missing url or format' });
     }
 
@@ -38,12 +48,16 @@ app.post('/api/convert', async (req, res) => {
                 : { format: 'mp4' })
         });
 
-        // Stream the file to client
+        // Pipe yt-dlp output to client
         stream.stdout.pipe(res);
 
         // Debug stderr
         stream.stderr.on("data", data => {
             console.error("yt-dlp stderr:", data.toString());
+        });
+
+        stream.on("error", err => {
+            console.error("yt-dlp process error:", err);
         });
 
         // Handle exit
