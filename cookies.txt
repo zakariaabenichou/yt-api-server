@@ -1,0 +1,71 @@
+[
+{
+    "domain": ".editthiscookie.com",
+    "expirationDate": 1790211129,
+    "hostOnly": false,
+    "httpOnly": false,
+    "name": "__utma",
+    "path": "/",
+    "sameSite": "unspecified",
+    "secure": false,
+    "session": false,
+    "storeId": "0",
+    "value": "165587563.766387424.1755651129.1755651129.1755651129.1",
+    "id": 1
+},
+{
+    "domain": ".editthiscookie.com",
+    "expirationDate": 1755652929,
+    "hostOnly": false,
+    "httpOnly": false,
+    "name": "__utmb",
+    "path": "/",
+    "sameSite": "unspecified",
+    "secure": false,
+    "session": false,
+    "storeId": "0",
+    "value": "165587563.1.10.1755651129",
+    "id": 2
+},
+{
+    "domain": ".editthiscookie.com",
+    "hostOnly": false,
+    "httpOnly": false,
+    "name": "__utmc",
+    "path": "/",
+    "sameSite": "unspecified",
+    "secure": false,
+    "session": true,
+    "storeId": "0",
+    "value": "165587563",
+    "id": 3
+},
+{
+    "domain": ".editthiscookie.com",
+    "expirationDate": 1755651729,
+    "hostOnly": false,
+    "httpOnly": false,
+    "name": "__utmt",
+    "path": "/",
+    "sameSite": "unspecified",
+    "secure": false,
+    "session": false,
+    "storeId": "0",
+    "value": "1",
+    "id": 4
+},
+{
+    "domain": ".editthiscookie.com",
+    "expirationDate": 1771419129,
+    "hostOnly": false,
+    "httpOnly": false,
+    "name": "__utmz",
+    "path": "/",
+    "sameSite": "unspecified",
+    "secure": false,
+    "session": false,
+    "storeId": "0",
+    "value": "165587563.1755651129.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)",
+    "id": 5
+}
+]
